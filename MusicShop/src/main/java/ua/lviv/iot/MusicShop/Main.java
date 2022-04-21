@@ -1,11 +1,10 @@
 package ua.lviv.iot.MusicShop;
 
 import ua.lviv.iot.MusicShop.manager.impl.ShopManager;
-import ua.lviv.iot.MusicShop.model.Instrument;
-import ua.lviv.iot.MusicShop.model.PercussionInstrument;
-import ua.lviv.iot.MusicShop.model.StringInstrument;
-import ua.lviv.iot.MusicShop.model.WindInstrument;
+import ua.lviv.iot.MusicShop.model.*;
 
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -13,7 +12,6 @@ import java.util.List;
 public class Main {
 
     public static void main(String[] args) {
-
         Instrument ins1 = new PercussionInstrument("foo", 12, 15, "drums");
         Instrument ins2 = new WindInstrument(15.5, 40, 10, "saxophone");
         Instrument ins3 = new StringInstrument(6, 42,10, "guitar");
@@ -52,4 +50,5 @@ public class Main {
 
 
     }
+
 }

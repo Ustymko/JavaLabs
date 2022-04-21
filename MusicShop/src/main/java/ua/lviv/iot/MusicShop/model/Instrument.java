@@ -1,24 +1,23 @@
 package ua.lviv.iot.MusicShop.model;
 
+import lombok.Getter;
+
+@Getter
 public abstract class Instrument {
     protected double price;
     protected double weight;
     protected String name;
     protected InstrumentType type;
 
-    public double getPrice() {
-        return price;
+    public boolean compareToAnotherInstrument(final Instrument instrument){
+        return (this.price == instrument.price && this.type == instrument.type &&
+                this.name.equals(instrument.name) && this.weight == instrument.weight);
     }
 
-    public double getWeight() {
-        return weight;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public InstrumentType getType(){
-        return type;
+    public Instrument(double price, double weight, String name, InstrumentType type) {
+        this.price = price;
+        this.weight = weight;
+        this.name = name;
+        this.type = type;
     }
 }

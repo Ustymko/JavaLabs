@@ -4,6 +4,7 @@ import ua.lviv.iot.MusicShop.model.Instrument;
 import ua.lviv.iot.MusicShop.model.InstrumentType;
 
 import java.util.List;
+import java.util.Map;
 
 public interface IShopManager {
 

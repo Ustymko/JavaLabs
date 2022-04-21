@@ -1,5 +1,6 @@
 package ua.lviv.iot.MusicShop.manager.impl;
 
+import lombok.Getter;
 import ua.lviv.iot.MusicShop.manager.IShopManager;
 import ua.lviv.iot.MusicShop.model.Instrument;
 import ua.lviv.iot.MusicShop.model.InstrumentType;
@@ -7,13 +8,14 @@ import ua.lviv.iot.MusicShop.model.InstrumentType;
 import java.util.*;
 import java.util.Comparator;
 
+@Getter
 public class ShopManager implements IShopManager {
 
     private Map<String, List<Instrument>> instrumentsMap = new HashMap<>();
 
     @Override
     public List<Instrument> findByType(InstrumentType type) {
-        List<Instrument> instrumentsOfOneType = new LinkedList<>();
+        List<Instrument> instrumentsOfOneType = new ArrayList<>();
         instrumentsMap.values().forEach(instruments -> {
             instruments.forEach(instrument -> {
                 if(instrument.getType() == type){
@@ -57,12 +59,8 @@ public class ShopManager implements IShopManager {
     @Override
     public List<Instrument> sortByPrice(boolean reverse) {
         List<Instrument> allInstruments = new ArrayList<>();
-        instrumentsMap.values().forEach(instruments -> {
-            instruments.forEach(instrument -> {
-                allInstruments.add(instrument);
-            });
-        });
-        Collections.sort(allInstruments, Comparator.comparing(Instrument::getPrice));
+        instrumentsMap.values().forEach(allInstruments::addAll);
+        allInstruments.sort(Comparator.comparing(Instrument::getPrice));
         if(reverse){
             Collections.reverse(allInstruments);
         }
@@ -72,15 +70,12 @@ public class ShopManager implements IShopManager {
     @Override
     public List<Instrument> sortByWeight(boolean reverse) {
         List<Instrument> allInstruments = new ArrayList<>();
-        instrumentsMap.values().forEach(instruments -> {
-            instruments.forEach(instrument -> {
-                allInstruments.add(instrument);
-            });
-        });
-        Collections.sort(allInstruments, Comparator.comparing(Instrument::getWeight));
+        instrumentsMap.values().forEach(allInstruments::addAll);
+        allInstruments.sort(Comparator.comparing(Instrument::getWeight));
         if(reverse){
             Collections.reverse(allInstruments);
         }
         return allInstruments;
     }
+
 }
