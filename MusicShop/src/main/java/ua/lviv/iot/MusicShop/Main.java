@@ -1,11 +1,13 @@
 package ua.lviv.iot.MusicShop;
 
-import ua.lviv.iot.MusicShop.manager.impl.ShopManager;
-import ua.lviv.iot.MusicShop.model.*;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import ua.lviv.iot.MusicShop.manager.impl.ShopManager;
+import ua.lviv.iot.MusicShop.model.Instrument;
+import ua.lviv.iot.MusicShop.model.PercussionInstrument;
+import ua.lviv.iot.MusicShop.model.StringInstrument;
+import ua.lviv.iot.MusicShop.model.WindInstrument;
 
 public class Main {
 
@@ -17,11 +19,10 @@ public class Main {
         Instrument ins5 = new WindInstrument(17, 20, 1, "reed pipe");
 
         List<Instrument> instruments = new ArrayList<>(Arrays.asList(ins1, ins2, ins3, ins4, ins5));
-        instruments.forEach(instrument -> {
-            System.out.println("Name: " + instrument.getName() + " Price: " + instrument.getPrice() +
-                    " Weight:" + instrument.getWeight() + " Type: " + instrument.getType());
 
-        });
+        instruments.forEach(instrument -> System.out.println("Name: "
+          + instrument.getName() + " Price: " + instrument.getPrice()
+          + " Weight:" + instrument.getWeight() + " Type: " + instrument.getType()));
 
         System.out.println();
 
@@ -30,23 +31,17 @@ public class Main {
 
         var instrumentsSortedByPrice = manager.sortByPrice(false);
         System.out.println("sortedByPrice:");
-        instrumentsSortedByPrice.forEach(instrument -> {
-            System.out.println("Name: " + instrument.getName() + " Price: " + instrument.getPrice() +
-                    " Weight:" + instrument.getWeight() + " Type: " + instrument.getType());
-
-        });
+        instrumentsSortedByPrice.forEach(instrument -> System.out.println("Name: "
+          + instrument.getName() + " Price: " + instrument.getPrice()
+          + " Weight:" + instrument.getWeight() + " Type: " + instrument.getType()));
 
         System.out.println();
 
         var instrumentsSortedByWeight = manager.sortByWeight(false);
         System.out.println("sortedByWeight:");
-        instrumentsSortedByWeight.forEach(instrument -> {
-            System.out.println("Name: " + instrument.getName() + " Price: " + instrument.getPrice() +
-                    " Weight:" + instrument.getWeight() + " Type: " + instrument.getType());
-
-        });
-
-
+        instrumentsSortedByWeight.forEach(instrument -> System.out.println("Name: "
+          + instrument.getName() + " Price: " + instrument.getPrice()
+          + " Weight:" + instrument.getWeight() + " Type: " + instrument.getType()));
     }
 
 }

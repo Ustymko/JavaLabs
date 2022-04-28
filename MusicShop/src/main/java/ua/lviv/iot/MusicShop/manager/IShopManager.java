@@ -1,10 +1,10 @@
 package ua.lviv.iot.MusicShop.manager;
 
+import java.util.List;
+import java.util.Set;
+
 import ua.lviv.iot.MusicShop.model.Instrument;
 import ua.lviv.iot.MusicShop.model.InstrumentType;
-
-import java.util.List;
-import java.util.Map;
 
 public interface IShopManager {
 
@@ -17,5 +17,9 @@ public interface IShopManager {
     List<Instrument> sortByPrice(boolean reverse);
 
     List<Instrument> sortByWeight(boolean reverse);
+
+    List<Instrument> getInstruments();
+
+    Set<String> getKeys();
 
 }

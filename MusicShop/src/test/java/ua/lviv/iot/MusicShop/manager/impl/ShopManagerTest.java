@@ -3,7 +3,6 @@ package ua.lviv.iot.MusicShop.manager.impl;
 import org.junit.jupiter.api.*;
 import ua.lviv.iot.MusicShop.model.*;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
@@ -14,7 +13,7 @@ public class ShopManagerTest {
     private List<Instrument> instruments;
 
     @BeforeEach
-    void setUp(){
+    void setUp() {
         shopManager = new ShopManager();
         instruments = new LinkedList<>();
         Instrument ins1 = new PercussionInstrument("foo", 12, 20, "drums");
@@ -28,14 +27,12 @@ public class ShopManagerTest {
 
     @Test
     public void testAddInstruments() {
-        Assertions.assertFalse(shopManager.getInstrumentsMap().values().isEmpty());
-        List<Instrument> allInstrumentsList = new ArrayList<>();
-        shopManager.getInstrumentsMap().values().forEach(allInstrumentsList::addAll);
-        Assertions.assertEquals(instruments.size(), allInstrumentsList.size());
+        Assertions.assertFalse(shopManager.getInstruments().isEmpty());
+        Assertions.assertEquals(instruments.size(), shopManager.getInstruments().size());
     }
 
     @Test
-    public void testFindByType(){
+    public void testFindByType() {
         InstrumentType someType = InstrumentType.STRING;
         var instrumentsOfSomeType = shopManager.findByType(someType);
         Assertions.assertFalse(instrumentsOfSomeType.isEmpty());
@@ -45,16 +42,16 @@ public class ShopManagerTest {
     }
 
     @Test
-    public void testFindForBand(){
+    public void testFindForBand() {
         int membersAmount = 3;
         var instrumentsForSomeBand = shopManager.findForBand(membersAmount);
         Assertions.assertFalse(instrumentsForSomeBand.isEmpty());
-        Assertions.assertTrue(shopManager.getInstrumentsMap().keySet().size() >= membersAmount);
+        Assertions.assertTrue(shopManager.getKeys().size() >= membersAmount);
         Assertions.assertEquals(membersAmount, instrumentsForSomeBand.size());
     }
 
     @Test
-    public void testSortByPrice(){
+    public void testSortByPrice() {
         Instrument ins1 = new StringInstrument(4, 51, 15, "violin");
         Instrument ins2 = new StringInstrument(6, 42,10, "guitar");
         Instrument ins3 = new WindInstrument(15.5, 40, 12, "saxophone");
@@ -75,7 +72,7 @@ public class ShopManagerTest {
     }
 
     @Test
-    public void testSortByWeight(){
+    public void testSortByWeight() {
         Instrument ins1 = new PercussionInstrument("foo", 12, 20, "drums");
         Instrument ins2 = new StringInstrument(4, 51, 15, "violin");
         Instrument ins3 = new WindInstrument(15.5, 40, 12, "saxophone");

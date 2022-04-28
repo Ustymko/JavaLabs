@@ -1,0 +1,8 @@
+price, weight, name, type, beatMaterial
+12.0, 15.0, drums, PERCUSSION, foo
+price, weight, name, type, stringsAmount
+42.0, 10.0, guitar, STRING, 6
+51.0, 15.0, violin, STRING, 4
+price, weight, name, type, lengthInSm
+40.0, 10.0, saxophone, WIND, 15.5
+20.0, 1.0, reed pipe, WIND, 17.0
