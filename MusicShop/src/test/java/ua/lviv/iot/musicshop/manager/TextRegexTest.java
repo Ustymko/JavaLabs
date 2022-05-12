@@ -24,7 +24,7 @@ class TextRegexTest {
             + "containing Lorem Ipsum passages, and recently desktop publishing software Aldus PageMaker including "
             + "versions of Lorem Ipsum.";
 
-    String result = someText.textEdit(text, 4);
+    String result = someText.deleteAllWordsOfSomeLengthBeginningWithConsonant(text, 4);
     Assertions.assertFalse(result.isEmpty());
     Assertions.assertEquals(result, actual);
   }

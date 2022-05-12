@@ -5,8 +5,8 @@ import java.util.regex.Pattern;
 
 public class TextRegex {
 
-  public String textEdit(String text, int length) {
-    Pattern pattern = Pattern.compile("\\b[\\w&&[^aeiouAEIOU\\s]]\\w{" + (length - 1) + "}\\b");
+  public String deleteAllWordsOfSomeLengthBeginningWithConsonant(String text, int lengthOfWordsDeleted) {
+    Pattern pattern = Pattern.compile("\\b[\\w&&[^aeiouAEIOU\\s]]\\w{" + (lengthOfWordsDeleted - 1) + "}\\b");
     Matcher matcher = pattern.matcher(text);
     while (matcher.find()) {
       text = text.replace(matcher.group(), "");
