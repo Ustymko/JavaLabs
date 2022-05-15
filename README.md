@@ -40,3 +40,8 @@ The code must be written according to the java code convention.
 Besides, checkstyle and spotbugs plugins must be included in pom.xml and used to check the code for any bugs and mistakes.
 
 to check the code quality run "mvn clean site"
+
+**Lab 7**
+RegEx usage in Java: delete all words from the text beginning with a consonant. Text and length of the words you want to delete must be given as parameters to the text editing method.
+
+ 
