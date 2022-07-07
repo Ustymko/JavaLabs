@@ -1,13 +1,21 @@
 package ua.lviv.iot.musicshop.model;
 
 import lombok.Getter;
+import lombok.Setter;
 
+
+@Setter
 @Getter
 public abstract class Instrument {
 
+  protected int id;
+
   protected double price;
+
   protected double weight;
+
   protected String name;
+
   protected InstrumentType type;
 
   public boolean compareToAnotherInstrument(final Instrument instrument) {
@@ -16,6 +24,7 @@ public abstract class Instrument {
   }
 
   public Instrument(double price, double weight, String name, InstrumentType type) {
+    this.id = 0;
     this.price = price;
     this.weight = weight;
     this.name = name;
